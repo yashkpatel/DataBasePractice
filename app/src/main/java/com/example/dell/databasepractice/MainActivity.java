@@ -9,12 +9,14 @@ import android.widget.TextView;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     EditText et_name,et_email,et_id;
     Button btn_insert,btn_update,btn_delete,btn_show;
 
-    String id,name,email;
+    protected String id,name,email;
 
     private DBHandler dbHelper;
     @Override
@@ -36,11 +38,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-               // name = et_name.getText().toString();
-               // id = et_id.getText().toString();
-               // email = et_email.getText().toString();
+                name = et_name.getText().toString();
+                id = et_id.getText().toString();
+                email = et_email.getText().toString();
+
+
+
 
                 dbHelper.addStudent(et_id.getText().toString(),et_name.getText().toString(),et_email.getText().toString());
+
+
+
 
                 Toast.makeText(MainActivity.this,"Record inserted.!",Toast.LENGTH_SHORT).show();
 
